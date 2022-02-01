@@ -1,3 +1,5 @@
+import openModal from './popup.js';
+
 const itemContainer = document.getElementById('item-container');
 
 const Render = (movie) => {
@@ -19,6 +21,12 @@ const Render = (movie) => {
   container.appendChild(button);
   container.appendChild(reservBtn);
   itemContainer.appendChild(container);
+
+  button.addEventListener('click', () => {
+    openModal(movie);
+    document.getElementById('modal-container').classList.add('active');
+    document.getElementById('overlay').classList.add('active');
+  });
 };
 
 export default Render;
