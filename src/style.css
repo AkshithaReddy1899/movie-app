@@ -88,7 +88,8 @@ img {
   align-items: center;
 }
 
-.modal {
+.modal-div {
+  font-size: 38px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -103,7 +104,22 @@ img {
   max-width: 80%;
 }
 
-.modal.active {
+/* .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: 200ms ease-in;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 10;
+  background-color: aliceblue;
+  max-width: 80%;
+} */
+
+.modal-div.active {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
