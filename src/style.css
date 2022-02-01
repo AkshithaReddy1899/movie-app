@@ -50,6 +50,79 @@ p a {
   color: #daa520;
 }
 
+/* MAIN  */
+
+img {
+  width: 60%;
+  height: auto;
+}
+
+.item {
+  list-style: none;
+  width: 200px;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.item-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: 200ms ease-in;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 10;
+  background-color: aliceblue;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 @media screen and (min-width: 1000px) {
   header {
     display: flex;
