@@ -39,6 +39,17 @@ header {
   border-bottom: 1px solid black;
 }
 
+footer {
+  color: #fff;
+  background-color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+p a {
+  color: #daa520;
+}
+
 @media screen and (min-width: 1000px) {
   header {
     display: flex;
