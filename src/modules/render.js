@@ -1,4 +1,5 @@
-import openModal from './popup.js';
+/* eslint-disable import/no-cycle */
+import renderModal from './renderModal.js';
 import { GetComments } from './API.js';
 
 const itemContainer = document.getElementById('item-container');
@@ -23,8 +24,20 @@ const Render = (movie, likes) => {
   container.appendChild(reservBtn);
   itemContainer.appendChild(container);
 
-  button.addEventListener('click', () => {
-    openModal(movie);
+  button.addEventListener('click', async () => {
+    renderModal(movie);
+    const commentArray = await GetComments(movie.show.id);
+
+    commentArray.forEach((item) => {
+      const li = document.createElement('li');
+      const name = document.createElement('span');
+
+      name.innerHTML = `${item.username} : ${item.comment}`;
+      li.appendChild(name);
+
+      document.getElementById('comment-list').appendChild(li);
+    });
+
     document.getElementById('modal-container').classList.add('active');
     document.getElementById('overlay').classList.add('active');
   });

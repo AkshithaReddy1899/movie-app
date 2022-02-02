@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import Render from './render.js';
 
 const involveApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
@@ -23,7 +24,6 @@ const PostLikes = async (movieId) => {
 };
 
 const SendComments = async (movieId, name, comment) => {
-  console.log('Hi');
   const response = await fetch(`${involveApiUrl}${involveApiId}/comments`, {
     method: 'POST',
     headers: {
@@ -32,42 +32,29 @@ const SendComments = async (movieId, name, comment) => {
     body: JSON.stringify({
       item_id: movieId,
       username: name,
-      comment: comment
-    });
-  })
-  alert(response)
+      comment,
+    }),
+  });
   return response;
-}
+};
 
 const GetComments = async (movieId) => {
-  const response = await fetch(`${involveApiUrl}${involveApiId}/comments?item_id=${movieId}`)
+  const response = await fetch(`${involveApiUrl}${involveApiId}/comments?item_id=${movieId}`);
   const data = await response.json();
   return data;
-}
+};
 
 const GetDataFromAPI = async () => {
   const response = await fetch('https://api.tvmaze.com/search/shows?q=dog');
-  const result = await response.json();
-  return result;
+  const ApiData = await response.json();
+  const ApiLikes = await GetLikes();
+  ApiData.forEach((movie) => {
+    const movieId = movie.show.id;
+    const likes = ApiLikes.find((item) => item.item_id === movieId) ?? { likes: 0 };
+    Render(movie, likes);
+  });
 };
 
-const Loop = async () => {
-  const ApiData = await GetDataFromAPI();
-  const ApiLikes = await GetLikes();
-  ApiData.forEach(movie => {
-    const movieId = movie.show.id;
-    const likes = ApiLikes.find((item) => item.item_id === movieId) ?? {likes: 0}
-    Render(movie, likes)
-  });
-}
-
-  console.log(likesArray)
-  result.forEach((movie) => {
-    const movieId = movie.show.id;
-    const likesObject = likesArray.filter((item) => item.item_id === movieId);
-    Render(movie);
-  });
-
 export {
-  GetDataFromAPI, PostLikes, GetLikes, SendComments, Loop, GetComments
+  GetDataFromAPI, PostLikes, GetLikes, SendComments, GetComments,
 };
