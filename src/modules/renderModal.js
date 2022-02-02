@@ -1,4 +1,4 @@
-const renderModal = (movie) => {
+const renderModal = async (movie) => {
   const modalContainer = document.getElementById('modal-container');
 
   modalContainer.innerHTML = `

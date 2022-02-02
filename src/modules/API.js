@@ -34,6 +34,29 @@ const GetDataFromAPI = async () => {
   });
 };
 
+const getComments = async (showId) => {
+  const url = `${involveApiUrl}/${involveApiId}/comments?item_id=${showId}`;
+  let comments = await fetch(url);
+  comments = await comments.json();
+  return comments;
+};
+
+const postCommentToApi = async (showId, name, insight) => {
+  const url = `${involveApiUrl}/${involveApiId}/comments`;
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      item_id: `${showId}`,
+      username: name,
+      comment: insight,
+    }),
+  });
+  return response.json();
+};
+
 export {
-  GetDataFromAPI, PostLikes, GetLikes,
+  GetDataFromAPI, PostLikes, GetLikes, getComments, postCommentToApi,
 };
