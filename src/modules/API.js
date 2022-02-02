@@ -42,13 +42,11 @@ const SendComments = async (movieId, name, comment) => {
 const GetComments = async (movieId) => {
   const response = await fetch(`${involveApiUrl}${involveApiId}/comments?item_id=${movieId}`)
   const data = await response.json();
-  console.log(data)
   return data;
 }
 
 const GetDataFromAPI = async () => {
   const response = await fetch('https://api.tvmaze.com/search/shows?q=dog');
-  const likesArray = await GetLikes();
   const result = await response.json();
   return result;
 };
@@ -67,8 +65,6 @@ const Loop = async () => {
   result.forEach((movie) => {
     const movieId = movie.show.id;
     const likesObject = likesArray.filter((item) => item.item_id === movieId);
-    console.log(likesObject)
-    console.log(likesObject[0].likes)
     Render(movie);
   });
 
