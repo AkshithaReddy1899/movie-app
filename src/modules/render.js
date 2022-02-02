@@ -1,4 +1,5 @@
 import openModal from './popup.js';
+import { GetComments } from './API.js';
 
 const itemContainer = document.getElementById('item-container');
 

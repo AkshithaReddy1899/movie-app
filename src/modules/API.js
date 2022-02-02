@@ -1,4 +1,3 @@
-import { result } from 'lodash';
 import Render from './render.js';
 
 const involveApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
@@ -23,7 +22,7 @@ const PostLikes = async (movieId) => {
   return response.status;
 };
 
-const SendComments = async (name, comment) => {
+const SendComments = async (movieId, name, comment) => {
   console.log('Hi')
   const response = await fetch(`${involveApiUrl}${involveApiId}/comments`, {
     method: 'POST',
@@ -39,12 +38,14 @@ const SendComments = async (name, comment) => {
   alert(response)
   return response;
 }
-/*
+
 const GetComments = async (movieId) => {
-  const response = await fetch(`${involveApiUrl}${involveApiId}/comments`)
-  const data = response.json()
-  
-}*/
+  const response = await fetch(`${involveApiUrl}${involveApiId}/comments?item_id=${movieId}`)
+  const data = await response.json();
+  console.log(data)
+  return data;
+}
+
 
 const GetDataFromAPI = async () => {
   const response = await fetch('https://api.tvmaze.com/search/shows?q=dog');
@@ -58,9 +59,7 @@ const Loop = async () => {
   const ApiLikes = await GetLikes();
   ApiData.forEach(movie => {
     const movieId = movie.show.id;
-    console.log(movieId)
-   const likes = ApiLikes.find((item) => item.item_id === movieId) ?? {likes: 0}
-    console.log(likes)
+    const likes = ApiLikes.find((item) => item.item_id === movieId) ?? {likes: 0}
     Render(movie, likes)
   });
 }
@@ -75,5 +74,5 @@ const Loop = async () => {
   });*/
 
 export {
-  GetDataFromAPI, PostLikes, GetLikes, SendComments, Loop
+  GetDataFromAPI, PostLikes, GetLikes, SendComments, Loop, GetComments
 };
