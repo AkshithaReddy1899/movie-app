@@ -1,6 +1,6 @@
 import './style.css';
-import GetDataFromAPI from './modules/API.js';
+import { GetDataFromAPI } from './modules/API.js';
 
-window.onload = () => {
-  GetDataFromAPI();
+window.onload = async () => {
+  await GetDataFromAPI();
 };

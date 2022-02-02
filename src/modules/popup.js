@@ -1,7 +1,6 @@
-import renderModal from './renderModal';
+import renderModal from './renderModal.js';
 
 const openModal = (movie) => {
-  console.log(movie);
   renderModal(movie);
 };
 
