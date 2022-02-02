@@ -1,4 +1,4 @@
-const renderModal = (movie) => {
+const renderModal = async (movie) => {
   const modalContainer = document.getElementById('modal-container');
 
   modalContainer.innerHTML = `
@@ -11,7 +11,10 @@ const renderModal = (movie) => {
       <p>Language: ${movie.show.language}</p>
       <p>Type: ${movie.show.type}</p>
       </div>
+      <h3>Comments</h3>
+      <ul id="comment-list"><ul>
       `;
+
   document.getElementById('close').addEventListener('click', () => {
     document.getElementById('modal-container').classList.remove('active');
     document.getElementById('overlay').classList.remove('active');
