@@ -28,9 +28,8 @@ const GetDataFromAPI = async () => {
   const result = await response.json();
   result.forEach((movie) => {
     const movieId = movie.show.id;
-    const likesObject = likesArray.filter((item) => item.item_id === movieId);
-    const like = likesObject[0].likes;
-    Render(movie, like);
+    const likes = likesArray.find((item) => item.item_id === movieId) ?? {likes: 0}
+    Render(movie, likes);
   });
 };
 

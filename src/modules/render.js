@@ -8,7 +8,7 @@ const Render = (movie, likes) => {
   container.innerHTML = `<img src="${movie.show.image.original}" alt=""/>
   <div class="item-header-container">
   <h2 class="name">${movie.show.name}</h2>
-  <p class="like d-flex f-d-">${likes} likes</p>
+  <p class="like">${likes.likes} likes</p>
   </div>`;
   const button = document.createElement('button');
   button.className = 'openModal';
