@@ -1,6 +1,7 @@
 import './style.css';
-import { GetDataFromAPI } from './modules/API.js';
+import { Loop} from './modules/API.js';
 
 window.onload = async () => {
-  await GetDataFromAPI();
+  Loop()
+  console.log("HI")
 };
