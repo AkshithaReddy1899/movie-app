@@ -156,9 +156,26 @@ img {
   pointer-events: all;
 }
 
+form h2 {
+  margin-left: 10px;
+}
+
 input {
-  margin-bottom: 10px;
-  width: 90%;
+  margin: 10px;
+  padding: 0 10px;
+  width: 87%;
+  font-size: 30px;
+}
+
+textarea {
+  font-size: 30px;
+  margin-left: 10px;
+  padding: 0 10px;
+}
+
+#add {
+  font-size: 30px;
+  margin-left: 10px;
 }
 
 @media screen and (min-width: 800px) {

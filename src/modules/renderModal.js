@@ -23,7 +23,7 @@ const renderModal = async (movie) => {
       <form id="comment-form">
         <h2>Add your comment</h2>
           <input type="text" id="name" placeholder="name" required /><br>
-          <textarea id="moviecomment" name="moviecomment" required></textarea>
+          <textarea id="moviecomment" name="moviecomment" placeholder="enter your comment" required></textarea>
         <div class="button-flex">
             <button type="button" id="add">Add comment</button>
         </div>
