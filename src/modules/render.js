@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import {renderModal, CommentUpdate} from './renderModal.js';
+import { renderModal, CommentUpdate } from './renderModal.js';
 import { GetComments, PostLikes, GetLikes } from './API.js';
 
 const itemContainer = document.getElementById('item-container');

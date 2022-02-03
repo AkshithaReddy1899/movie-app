@@ -1,4 +1,7 @@
-import { GetComments, SendComments } from "./API";
+/* eslint-disable no-use-before-define */
+// eslint-disable-next-line import/no-cycle
+import { GetComments, SendComments } from './API';
+
 const renderModal = (movie) => {
   const modalContainer = document.getElementById('modal-container');
 
@@ -42,13 +45,13 @@ const renderModal = (movie) => {
     const nameValue = name.value;
     const commentValue = comment.value;
 
-    if(name.value == "" || comment.value == ""){
+    if (name.value === '' || comment.value === '') {
       error.style.display = 'block';
-    }else {
+    } else {
       error.style.display = 'none';
       SendComments(movieId, nameValue, commentValue);
 
-      document.getElementById('comment-list').innerHTML = ''
+      document.getElementById('comment-list').innerHTML = '';
 
       const updatedArray = await GetComments(movieId);
       CommentUpdate(updatedArray);
@@ -69,6 +72,6 @@ const CommentUpdate = (array) => {
 
   document.getElementById('modal-container').classList.add('active');
   document.getElementById('overlay').classList.add('active');
-}
+};
 
-export {renderModal, CommentUpdate}
+export { renderModal, CommentUpdate };

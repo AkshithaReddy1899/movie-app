@@ -32,7 +32,8 @@ const SendComments = async (movieId, name, comment) => {
     body: JSON.stringify({
       item_id: movieId,
       username: name,
-      comment: comment
+      // eslint-disable-next-line object-shorthand
+      comment: comment,
     }),
   });
   console.log(response);
@@ -42,7 +43,7 @@ const SendComments = async (movieId, name, comment) => {
 const GetComments = async (movieId) => {
   const response = await fetch(`${involveApiUrl}${involveApiId}/comments?item_id=${movieId}`);
   const data = await response.json();
-  console.log(data)
+  console.log(data);
   return data;
 };
 
