@@ -2,6 +2,7 @@
 import { GetComments, SendComments } from './API.js';
 
 const CommentUpdate = (array) => {
+  document.getElementById('comments-counter').innerHTML = `Comments ${array.length}`;
   array.forEach((item) => {
     const li = document.createElement('li');
     const name = document.createElement('span');
@@ -28,7 +29,7 @@ const renderModal = (movie) => {
       <img src="${movie.show.image.medium}"></img>
       <p>Language: ${movie.show.language}</p>
       <p>Type: ${movie.show.type}</p>
-      <h3>Comments</h3>
+      <h6 id="comments-counter">Comments</h6>
       <ul id="comment-list"><ul>
       </div>
       <p class="error" id="error">Name and comment cannot be empty</p>
