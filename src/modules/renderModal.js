@@ -10,9 +10,17 @@ const renderModal = async (movie) => {
       <img src="${movie.show.image.medium}"></img>
       <p>Language: ${movie.show.language}</p>
       <p>Type: ${movie.show.type}</p>
-      </div>
       <h3>Comments</h3>
       <ul id="comment-list"><ul>
+      </div>
+      <form id="comment-form">
+        <h2>Add your comment</h2>
+          <input type="text" id="name" placeholder="name" required /><br>
+          <textarea id="moviecomment" name="moviecomment" required></textarea>
+        <div class="button-flex">
+            <button type="button" id="add">Add comment</button>
+        </div>
+    </form>
       `;
 
   document.getElementById('close').addEventListener('click', () => {
