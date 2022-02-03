@@ -56,9 +56,7 @@ const Render = (movie, likes) => {
     const body = {
       item_id: (id),
     };
-
     GetLikes(body);
-
     likesP.innerHTML = `${likes.likes + 1} likes`;
   });
 
