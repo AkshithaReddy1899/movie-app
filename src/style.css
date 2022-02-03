@@ -104,21 +104,6 @@ img {
   max-width: 80%;
 }
 
-/* .modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 1;
-  transition: 200ms ease-in;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 20px;
-  z-index: 10;
-  background-color: aliceblue;
-  max-width: 80%;
-} */
-
 .modal-div.active {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
@@ -154,6 +139,11 @@ img {
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.like-btn {
+  width: 30px;
+  height: 30px;
 }
 
 @media screen and (min-width: 800px) {
