@@ -1,5 +1,5 @@
 const Counter = (array) => {
-  document.getElementById('counter').innerHTML = `Movies(${array.length})`;
+  return array.length;
 };
 
 export default Counter;
