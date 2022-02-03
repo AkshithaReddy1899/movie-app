@@ -1,6 +1,20 @@
-/* eslint-disable no-use-before-define */
-// eslint-disable-next-line import/no-cycle
-import { GetComments, SendComments } from './API';
+/* eslint-disable import/no-cycle */
+import { GetComments, SendComments } from './API.js';
+
+const CommentUpdate = (array) => {
+  array.forEach((item) => {
+    const li = document.createElement('li');
+    const name = document.createElement('span');
+
+    name.innerHTML = `${item.creation_date} ${item.username} : ${item.comment}`;
+    li.appendChild(name);
+
+    document.getElementById('comment-list').appendChild(li);
+  });
+
+  document.getElementById('modal-container').classList.add('active');
+  document.getElementById('overlay').classList.add('active');
+};
 
 const renderModal = (movie) => {
   const modalContainer = document.getElementById('modal-container');
@@ -42,36 +56,20 @@ const renderModal = (movie) => {
     const error = document.getElementById('error');
 
     const movieId = parseInt(`${movie.show.id}`, 10);
-    const nameValue = name.value;
-    const commentValue = comment.value;
 
     if (name.value === '' || comment.value === '') {
       error.style.display = 'block';
     } else {
       error.style.display = 'none';
-      SendComments(movieId, nameValue, commentValue);
-
-      document.getElementById('comment-list').innerHTML = '';
-
-      const updatedArray = await GetComments(movieId);
-      CommentUpdate(updatedArray);
+      SendComments(movieId, name.value, comment.value).then(() => {
+        GetComments(movieId).then((updatedArray) => {
+          document.getElementById('comment-list').innerHTML = '';
+          CommentUpdate(updatedArray);
+          document.getElementById('form').reset();
+        });
+      });
     }
   });
-};
-
-const CommentUpdate = (array) => {
-  array.forEach((item) => {
-    const li = document.createElement('li');
-    const name = document.createElement('span');
-
-    name.innerHTML = `${item.creation_date} ${item.username} : ${item.comment}`;
-    li.appendChild(name);
-
-    document.getElementById('comment-list').appendChild(li);
-  });
-
-  document.getElementById('modal-container').classList.add('active');
-  document.getElementById('overlay').classList.add('active');
 };
 
 export { renderModal, CommentUpdate };
