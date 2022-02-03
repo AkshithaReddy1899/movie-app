@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import renderModal from './renderModal.js';
+import {renderModal, CommentUpdate} from './renderModal.js';
 import { GetComments, PostLikes, GetLikes } from './API.js';
 
 const itemContainer = document.getElementById('item-container');
@@ -65,19 +65,7 @@ const Render = (movie, likes) => {
   button.addEventListener('click', async () => {
     renderModal(movie);
     const commentArray = await GetComments(movie.show.id);
-
-    commentArray.forEach((item) => {
-      const li = document.createElement('li');
-      const name = document.createElement('span');
-
-      name.innerHTML = `${item.username} : ${item.comment}`;
-      li.appendChild(name);
-
-      document.getElementById('comment-list').appendChild(li);
-    });
-
-    document.getElementById('modal-container').classList.add('active');
-    document.getElementById('overlay').classList.add('active');
+    CommentUpdate(commentArray);
   });
 };
 

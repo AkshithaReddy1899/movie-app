@@ -89,7 +89,7 @@ img {
 }
 
 .modal-div {
-  font-size: 38px;
+  font-size: 1rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -102,6 +102,8 @@ img {
   z-index: 10;
   background-color: aliceblue;
   max-width: 80%;
+  max-height: 80%;
+  overflow-y: scroll;
 }
 
 .modal-div.active {
@@ -144,6 +146,16 @@ img {
 .like-btn {
   width: 30px;
   height: 30px;
+}
+
+.error {
+  color: red;
+  display: none;
+}
+
+#comment-list {
+  height: 100px;
+  overflow-y: scroll;
 }
 
 @media screen and (min-width: 800px) {
