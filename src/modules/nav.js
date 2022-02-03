@@ -20,6 +20,6 @@ const Nav = (arr) => {
     </div>
   </div>
 </nav>`;
-}
+};
 
 export default Nav;

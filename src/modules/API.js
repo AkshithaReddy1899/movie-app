@@ -49,7 +49,6 @@ const GetComments = async (movieId) => {
 const GetDataFromAPI = async () => {
   const response = await fetch('https://api.tvmaze.com/search/shows?q=dog');
   const ApiData = await response.json();
-  console.log(ApiData);
   const ApiLikes = await GetLikes();
   Counter(ApiData);
   Nav(ApiData);

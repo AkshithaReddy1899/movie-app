@@ -6,7 +6,7 @@ test.only('counter return correct number', () => {
   const data = mock;
 
   const count = Counter(data);
-  
+
   Counter(mock);
   expect(count).toEqual(5);
 });
