@@ -1,3 +1,10 @@
+const submitfunction = async () => {
+  const form = document.getElementById('comment-form');
+  form.name.value = '';
+  form.moviecomment.value = '';
+  console.log('hello');
+};
+
 const renderModal = async (movie) => {
   const modalContainer = document.getElementById('modal-container');
 
@@ -27,6 +34,9 @@ const renderModal = async (movie) => {
     document.getElementById('modal-container').classList.remove('active');
     document.getElementById('overlay').classList.remove('active');
   });
+
+  const addComment = document.getElementById('add');
+  addComment.addEventListener('click', () => { submitfunction(movie); });
 };
 
 export default renderModal;
