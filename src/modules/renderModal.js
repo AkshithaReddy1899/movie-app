@@ -61,7 +61,7 @@ const renderModal = (movie) => {
 
     const movieId = parseInt(`${movie.show.id}`, 10);
 
-    if (name.value === ' ' || comment.value === ' ') {
+    if (name.value === ' ' || comment.value === ' ' || name.value === '' || comment.value === '') {
       error.style.display = 'block';
     } else {
       error.style.display = 'none';
