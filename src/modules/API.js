@@ -47,6 +47,8 @@ const GetComments = async (movieId) => {
 };
 
 const GetDataFromAPI = async () => {
+  const loading = document.getElementById('loader');
+  loading.classList.add('display');
   const response = await fetch('https://api.tvmaze.com/search/shows?q=dog');
   const ApiData = await response.json();
   const ApiLikes = await GetLikes();
@@ -57,6 +59,7 @@ const GetDataFromAPI = async () => {
     const likes = ApiLikes.find((item) => item.item_id === movieId) ?? { likes: 0 };
     Render(movie, likes);
   });
+  loading.classList.remove('display');
 };
 
 export {
