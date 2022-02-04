@@ -1,5 +1,3 @@
-const Counter = (array) => {
-  document.getElementById('counter').innerHTML = `Movies(${array.length})`;
-};
+const Counter = (array) => array.length;
 
 export default Counter;

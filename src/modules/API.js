@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import Render from './render.js';
 import Counter from './counter/movieCounter.js';
+import Nav from './nav.js';
 
 const involveApiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 const involveApiId = 'r0Jfm9NG0qKGASTjFlWm';
@@ -50,6 +51,7 @@ const GetDataFromAPI = async () => {
   const ApiData = await response.json();
   const ApiLikes = await GetLikes();
   Counter(ApiData);
+  Nav(ApiData);
   ApiData.forEach((movie) => {
     const movieId = movie.show.id;
     const likes = ApiLikes.find((item) => item.item_id === movieId) ?? { likes: 0 };
