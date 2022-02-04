@@ -1,7 +1,7 @@
-import CommentsCounter from "./commentsCounter";
+import CommentsCounter from './commentsCounter.js';
 
 test.only('Comments counter return correct number', () => {
-  const mock = [1, 2, 3,];
+  const mock = [1, 2, 3];
 
   const data = mock;
 
