@@ -204,6 +204,7 @@ img {
   background: rgb(48 47 47);
   height: 100px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .loader {
