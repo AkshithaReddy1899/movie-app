@@ -56,6 +56,8 @@ const Render = (movie, likes) => {
     const movieid = `${movie.show.id}`;
     const id = parseInt(movieid, 10);
 
+    likeBtn.disabled = 'true';
+
     PostLikes(id);
 
     const body = {
