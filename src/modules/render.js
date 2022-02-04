@@ -6,7 +6,7 @@ const itemContainer = document.getElementById('item-container');
 
 const Render = (movie, likes) => {
   const container = document.createElement('li');
-  container.className = 'item';
+  container.className = 'item column';
 
   const movieImage = document.createElement('img');
   movieImage.src = `${movie.show.image.original}`;
@@ -15,7 +15,7 @@ const Render = (movie, likes) => {
   const headerContainer = document.createElement('div');
   headerContainer.className = 'item-header-container';
 
-  const imageHeader = document.createElement('h2');
+  const imageHeader = document.createElement('h4');
   imageHeader.className = 'name';
   imageHeader.innerHTML = `${movie.show.name}`;
 
@@ -31,20 +31,25 @@ const Render = (movie, likes) => {
   likeBtn.id = `${movie.show.id}`;
   likeBtn.innerHTML = '<img src="https://tse4.mm.bing.net/th?id=OIP.e6IckBEOEHuCKMW8DEQfEgHaGa&pid=Api&P=0&w=189&h=164" class="like-btn" alt="like">';
 
+  const btnContainer = document.createElement('div');
+  btnContainer.className = 'btn-container';
+
   const button = document.createElement('button');
-  button.className = 'openModal';
+  button.className = 'openModal open-modal btn btn-secondary';
   button.type = 'button';
   button.textContent = 'Comments';
 
   headerContainer.appendChild(imageHeader);
   headerContainer.appendChild(likeContainer);
 
-  likeContainer.appendChild(likesP);
   likeContainer.appendChild(likeBtn);
+  likeContainer.appendChild(likesP);
+
+  btnContainer.appendChild(button);
 
   container.appendChild(movieImage);
   container.appendChild(headerContainer);
-  container.appendChild(button);
+  container.appendChild(btnContainer);
   itemContainer.appendChild(container);
 
   likeBtn.addEventListener('click', () => {

@@ -22,16 +22,19 @@ const renderModal = (movie) => {
 
   modalContainer.innerHTML = `
       <div class="modal-header">
-      <div class="title">${movie.show.name}</div>
       <button class="close-button" id="close">&times;</button>
       </div>
       <div class="modal-body">
-      <img src="${movie.show.image.medium}"></img>
-      <p>Language: ${movie.show.language}</p>
-      <p>Type: ${movie.show.type}</p>
-      <h6 id="comments-counter">Comments</h6>
+      <img src="${movie.show.image.medium}" id="modal-img"></img>
+      <small class="movie-description">${movie.show.summary}</small>
+      <div class="modal-description">
+      <p><b>Language</b>: ${movie.show.language}</p>
+      <p><b>Type</b>: ${movie.show.type}</p>
+      </div>
+      <h5 id="comments-counter" class="text-center">Comments</h5>
       <ul id="comment-list"><ul>
       </div>
+      <h5 id="comments-counter" class="text-center">Add a comment</h5>
       <p class="error" id="error">Name and comment cannot be empty</p>
       <form id="form">
   <div class="mb-3">
@@ -40,9 +43,9 @@ const renderModal = (movie) => {
   </div>
   <div class="mb-3">
     <label for="comment" class="form-label">Comment</label>
-    <input type="text" class="form-control" id="comment" required>
+    <input type="text-area" class="form-control" id="comment" required>
   </div>
-  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
 </form>`;
 
   document.getElementById('close').addEventListener('click', () => {
