@@ -1,7 +1,15 @@
 # JavaScript Team Capstone Project
-# JavaScript Team Capstone Project
 
 A Single page movie app with detailed movie information that let's you like and comment on your favourite movie. built using webpack, Javascript, CSS, HTML, Bootstrap, tested with Jest, deployed on Netlify
+
+# Live Link
+
+[Live Demo](https://distracted-tesla-0b9846.netlify.app/)
+
+# screenshot 
+
+![JavaScript-Capstone](https://user-images.githubusercontent.com/70577783/152532390-841c7832-c118-4d5c-98b6-3b5ba8708b82.png)
+
 
 ## Built With
 
