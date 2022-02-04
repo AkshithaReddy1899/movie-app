@@ -36,6 +36,7 @@ const renderModal = (movie) => {
       </div>
       <h5 id="comments-counter" class="text-center">Add a comment</h5>
       <p class="error" id="error">Name and comment cannot be empty</p>
+      <p class="error" id="error-string">Comment or name to long</p>
       <form id="form">
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
@@ -58,13 +59,17 @@ const renderModal = (movie) => {
     const name = document.getElementById('name');
     const comment = document.getElementById('comment');
     const error = document.getElementById('error');
+    const errorOne = document.getElementById('error-string');
 
     const movieId = parseInt(`${movie.show.id}`, 10);
 
     if (name.value === ' ' || comment.value === ' ' || name.value === '' || comment.value === '') {
       error.style.display = 'block';
+    } else if (comment.value.length > 10 || name.value.length > 8) {
+      errorOne.style.display = 'block';
     } else {
       error.style.display = 'none';
+      errorOne.style.display = 'none';
       SendComments(movieId, name.value, comment.value).then(() => {
         GetComments(movieId).then((updatedArray) => {
           document.getElementById('comment-list').innerHTML = '';
