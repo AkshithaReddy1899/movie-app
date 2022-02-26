@@ -1,0 +1,247 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgb(219 213 213);
+  overflow-x: hidden;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: black;
+}
+
+.nav-item {
+  margin: 0 15px;
+  color: black;
+  cursor: pointer;
+  width: 80px;
+}
+
+.nav-link {
+  color: black;
+  padding: 0;
+}
+
+.active {
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+header {
+  padding-top: 30px;
+}
+
+footer {
+  color: #fff;
+  background-color: rgb(77 74 74);
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer ul li {
+  margin: 0 15px;
+}
+
+::-webkit-scrollbar {
+  background: grey;
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: whitesmoke;
+}
+
+/* MAIN */
+
+img {
+  width: 60%;
+  height: 70%;
+}
+
+.item {
+  width: 300px;
+  height: 350px;
+  background: whitesmoke;
+  border-radius: 5px;
+  margin: 25px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 4px 4px 5px rgb(209 204 204);
+}
+
+.item-header-container {
+  display: flex;
+  width: 110%;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.like-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modal-div {
+  font-size: 1rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: 200ms ease-in;
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 10;
+  background-color: rgba(0 0 0 / 75%);
+  color: whitesmoke;
+  overflow-y: scroll;
+  width: 80%;
+  max-width: 500px;
+  height: 90%;
+}
+
+.modal-div.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+}
+
+.close-button:hover {
+  color: red;
+}
+
+#modal-img {
+  margin: 50px auto;
+  width: 60%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0 0 0/ 50%);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.like-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+}
+
+.error {
+  color: red;
+  display: none;
+}
+
+.btn-container {
+  width: 100%;
+}
+
+#comment-list {
+  background: rgb(48 47 47);
+  height: 100px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.loader {
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  border: 2px solid grey;
+  border-top: 6px solid black;
+  border-radius: 100%;
+  animation: spin 1s infinite linear;
+  opacity: 0;
+}
+
+.loader.display {
+  opacity: 1;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-nav {
+    margin-left: 30px;
+  }
+}
